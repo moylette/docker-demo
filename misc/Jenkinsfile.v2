@@ -9,6 +9,7 @@ node {
      def myTestContainer = docker.image('node:6.13')
      myTestContainer.pull()
      myTestContainer.inside {
+       sh 'whoami'
        sh 'pwd'
        sh 'npm install --unsafe-perm=true --allow-root --only=dev'
        sh 'npm test'
